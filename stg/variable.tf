@@ -18,4 +18,5 @@ variable "private_db_subnets" {
 
 # Route53 related
 variable "root_domain_name" {}
+variable "subdomain1_name" {}
 

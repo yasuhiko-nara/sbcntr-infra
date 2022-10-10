@@ -1,19 +1,3 @@
-# SG
-module "http_sg" {
-  source      = "./modules/sg_cidr_blocks"
-  name        = "${var.env}-alb-http-sg"
-  vpc_id      = aws_vpc.this.id
-  port        = 80
-  cidr_blocks = ["0.0.0.0/0"]
-}
-module "https_sg" {
-  source      = "./modules/sg_cidr_blocks"
-  name        = "${var.env}-alb-https-sg"
-  vpc_id      = aws_vpc.this.id
-  port        = 443
-  cidr_blocks = ["0.0.0.0/0"]
-}
-
 # log bucket
 resource "aws_s3_bucket" "alb_log" {
   bucket = "${var.env}-alb-log-pragmatic-terraform"
@@ -87,7 +71,7 @@ resource "aws_lb_listener" "redirect_http_to_https" {
 
 # HTTPS listener
 resource "aws_lb_listener" "https" {
-  depends_on        = [aws_lb.this, aws_acm_certificate_validation.this]
+  depends_on        = [aws_lb.this, aws_acm_certificate.this]
   load_balancer_arn = aws_lb.this.arn
   port              = "443"
   protocol          = "HTTPS"

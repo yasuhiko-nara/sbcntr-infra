@@ -9,3 +9,4 @@ private_db_subnets = ["10.0.16.0/24", "10.0.17.0/24" ]
 
 # Route53
 root_domain_name = "wanchanmask.net"
+subdomain1_name="stg"

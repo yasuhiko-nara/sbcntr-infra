@@ -16,13 +16,10 @@ resource "aws_route53_record" "root" {
 }
 
 # subdomain
-resource "aws_route53_zone" "subdomain_stg" {
-  name = "stg.${var.root_domain_name}"
-}
 resource "aws_route53_record" "subdomain_stg" {
-  zone_id = aws_route53_zone.subdomain_stg.zone_id
-  name    = aws_route53_zone.subdomain_stg.name
-  type    = "CNAME"
+  zone_id = data.aws_route53_zone.root.zone_id
+  name    = "${var.subdomain1_name}.${data.aws_route53_zone.root.name}"
+  type    = "A"
   alias {
     name                   = aws_lb.this.dns_name
     zone_id                = aws_lb.this.zone_id
