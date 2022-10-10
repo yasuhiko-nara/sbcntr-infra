@@ -16,3 +16,6 @@ variable "private_db_subnets" {
   type = list(string)
 }
 
+# Route53 related
+variable "root_domain_name" {}
+
