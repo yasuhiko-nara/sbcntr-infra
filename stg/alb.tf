@@ -71,7 +71,7 @@ resource "aws_lb_listener" "redirect_http_to_https" {
 
 # HTTPS listener
 resource "aws_lb_listener" "https" {
-  depends_on        = [aws_lb.this, aws_acm_certificate.this]
+  depends_on        = [aws_lb.this, aws_acm_certificate_validation.this]
   load_balancer_arn = aws_lb.this.arn
   port              = "443"
   protocol          = "HTTPS"
