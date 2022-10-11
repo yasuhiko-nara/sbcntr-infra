@@ -28,12 +28,12 @@ resource "aws_s3_bucket_versioning" "terraform_state" {
 
 resource "aws_dynamodb_table" "terraform_state_lock" {
   name           = var.dynamoDB_name
-  read_capacity  = 1
-  write_capacity = 1
-  hash_key       = "lock_id"
+  hash_key       = "LockID"
+  read_capacity  = 20
+  write_capacity = 20
 
   attribute {
-    name = "lock_id"
+    name = "LockID"
     type = "S"
   }
 }
