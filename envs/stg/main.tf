@@ -8,9 +8,10 @@ terraform {
   required_version = ">= 1.2.0"
 
   backend "s3" {
-    bucket                  = "sbcntr-infra-stg"
+    bucket                  = "sbcntr-infra-staging"
     key                     = "stg/terraform.tfstate"
     region                  = "ap-northeast-1"
+    dynamodb_table          = "terraform_state_lock"
     shared_credentials_file = "$HOME/.aws/credentials"
     profile                 = "default"
   }
