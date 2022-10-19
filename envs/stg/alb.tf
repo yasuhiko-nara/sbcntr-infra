@@ -1,6 +1,6 @@
 # log bucket
 resource "aws_s3_bucket" "alb_log" {
-  bucket = "${var.env}-alb-log-pragmatic-terraform"
+  bucket = "${var.env}-alb-log-sbcntr"
 }
 resource "aws_s3_bucket_lifecycle_configuration" "alb_log" {
   bucket = aws_s3_bucket.alb_log.id
