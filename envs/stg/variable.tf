@@ -30,3 +30,17 @@ variable "private_db_subnets" {
 variable "root_domain_name" {}
 variable "subdomain1_name" { default = "stg" }
 variable "root_domain_zone_id" {}
+
+# ECS related
+variable "cpu" {
+  type    = string
+  default = "256"
+}
+variable "memory" {
+  type    = string
+  default = "512"
+}
+variable "desired_count" {
+  type    = number
+  default = 1
+}
