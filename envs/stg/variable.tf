@@ -1,10 +1,12 @@
 # environment prefix
 variable "env" {
+  type    = string
   default = "stg"
 }
 
 # vpc related
 variable "vpc_cidr_block" {
+  type    = string
   default = "10.0.0.0/16"
 }
 variable "azs" {
@@ -23,6 +25,10 @@ variable "private_app_subnets" {
 variable "private_db_subnets" {
   type    = list(string)
   default = ["10.0.16.0/24", "10.0.17.0/24"]
+}
+variable "private_name_space" {
+  type    = string
+  default = "myapp.local"
 
 }
 
@@ -43,4 +49,8 @@ variable "memory" {
 variable "desired_count" {
   type    = number
   default = 1
+}
+variable "logs_retention_in_days" {
+  type    = number
+  default = 30
 }

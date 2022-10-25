@@ -14,13 +14,20 @@ module "https_sg" {
   cidr_blocks = ["0.0.0.0/0"]
 }
 
-
 # frontend service
-module "nginx_sg" {
+module "frontend_sg" {
   source                   = "../../modules/sg_source_security_group_id"
-  name                     = "nginx-sg"
+  name                     = "${var.env}-frontend-sg"
   vpc_id                   = aws_vpc.this.id
   port                     = 80
   source_security_group_id = module.https_sg.security_group_id
+}
 
+# backend service
+module "backend_sg" {
+  source                   = "../../modules/sg_source_security_group_id"
+  name                     = "${var.env}-backend-sg"
+  vpc_id                   = aws_vpc.this.id
+  port                     = 80
+  source_security_group_id = module.frontend_sg.security_group_id
 }

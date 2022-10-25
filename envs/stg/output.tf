@@ -1,11 +1,3 @@
-# output "iam_role_arn" {
-#   value = module.describe_region_for_ec2.iam_role_arn
-# }
-
-# output "iam_role_name" {
-#   value = module.describe_region_for_ec2.iam_role_name
-# }
-
 # VPC related
 output "vpc_id" {
   value = aws_vpc.this.id
