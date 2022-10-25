@@ -2,7 +2,7 @@ resource "aws_ecs_cluster" "this" {
   name = "${var.env}-sbcntr-cluster"
 }
 
-# stg環境なのでFargate Spotのみ使う
+# stg環境ではFargate Spotのみ使う
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster_capacity_providers
 resource "aws_ecs_cluster_capacity_providers" "this" {
   cluster_name = aws_ecs_cluster.this.name
@@ -11,6 +11,6 @@ resource "aws_ecs_cluster_capacity_providers" "this" {
 
   default_capacity_provider_strategy {
     weight            = 1
-    capacity_provider = "FARGATE_SPOT"
+    capacity_provider = var.env == "stg" ? "FARGATE_SPOT" : "FARGATE"
   }
 }
