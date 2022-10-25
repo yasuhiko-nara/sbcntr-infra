@@ -3,7 +3,7 @@
 Terraform で ECS 開発環境を構築するためのサンプルレポジトリです。
 ![ECS概要](./images/wholeview.png)
 
-# Step1:aws-cli の設定
+# Step1: aws-cli の設定
 
 profile`default`の部分を環境に応じたコンテクスト名に変更することができます。
 これは`./backend/stg/main.tf`に設定する`provider`の`profile`プロパティと一致させます。
@@ -28,18 +28,20 @@ $ export AWS_DEFAULT_PROFILE=default
 $ aws configure list
 ```
 
-# Step2：tfState 管理用のバケット作成
+# Step2: tfState 管理用のバケット作成
 
-tfstate を管理するための S3 バケット、および同時編集をロックするための DynamoDB テーブルを作成します。
+tfState を管理するための S3 バケット、および同時編集をロックするための DynamoDB テーブルを作成します。
 上記 2 つのリソースは異なる環境ごとに作成します。
-tfstate は S3 バケットでリモート管理されるため、チーム間で共有することができます。
+tfState を S3 バケットでリモート管理し、チーム間での共同開発を行います。
 
 ```
 $ cd ./backend/stg
+$ terraform init
+$ terraform plan
 $ terraform apply
 ```
 
-# Step3:事前準備
+# Step3: 事前準備
 
 ## ルートドメイン
 
@@ -50,7 +52,7 @@ variable "root_domain_name" { type = string }
 variable "root_domain_zone_id" { type = string }
 ```
 
-# Step4:作成
+# Step4: リソース作成
 
 ```
 $ cd ./env/stg
@@ -59,7 +61,7 @@ $ terraform plan
 $ terraform apply
 ```
 
-# Step4： ECS-Exec をつかってコンテナにアクセスする場合のコマンド
+# Step5: ECS-Exec をつかってコンテナにアクセスする場合のコマンド
 
 デバッグのため、コンテナを指定して直接ログインすることができます。
 
