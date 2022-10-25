@@ -33,9 +33,12 @@ variable "private_name_space" {
 }
 
 # Route53 related
-variable "root_domain_name" {}
-variable "subdomain1_name" { default = "stg" }
-variable "root_domain_zone_id" {}
+variable "root_domain_name" { type = string }
+variable "subdomain1_name" {
+  type    = string
+  default = "stg"
+}
+variable "root_domain_zone_id" { type = string }
 
 # ECS related
 variable "cpu" {
