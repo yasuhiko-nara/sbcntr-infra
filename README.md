@@ -61,7 +61,7 @@ $ terraform plan
 $ terraform apply
 ```
 
-# Step5: ECS-Exec をつかってコンテナにアクセスする場合のコマンド
+# Step5: ECS-Exec によるコンテナへのアクセス
 
 デバッグのため、コンテナを指定して直接ログインすることができます。
 
