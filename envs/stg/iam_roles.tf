@@ -93,11 +93,6 @@ data "aws_iam_policy_document" "codebuild" {
       "codestar-connections:ListConnections"
     ]
   }
-  # statement {
-  #   effect    = "Allow"
-  #   resources = ["*"]
-  #   actions   = ["*"]
-  # }
 }
 
 module "codebuild_role" {
@@ -138,11 +133,6 @@ data "aws_iam_policy_document" "codepipeline" {
       "codestar-connections:ListConnections"
     ]
   }
-  # statement {
-  #   effect    = "Allow"
-  #   resources = ["*"]
-  #   actions   = ["*"]
-  # }
 
 }
 module "codepipeline_role" {
