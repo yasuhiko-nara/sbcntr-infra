@@ -22,3 +22,7 @@ provider "aws" {
   shared_credentials_files = ["$HOME/.aws/credentials"]
   profile                  = "default"
 }
+
+data "aws_region" "current" {}
+
+data "aws_caller_identity" "current" {}

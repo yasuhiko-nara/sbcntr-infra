@@ -57,3 +57,24 @@ variable "logs_retention_in_days" {
   type    = number
   default = 30
 }
+
+# CodePipeline related
+variable "artifact_bucket_name" {
+  type    = string
+  default = "artifact-bucket-myapp"
+}
+variable "frontend_build_output_json" {
+  type    = string
+  default = "frontendImageDifinitions.json"
+}
+variable "github_connection_arn" {
+  type = string
+}
+variable "frontend_full_repository_id" {
+  type    = string
+  default = "yasuhiko-nara/sbcntr-frontend"
+}
+variable "branch" {
+  type    = string
+  default = "main"
+}
