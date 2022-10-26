@@ -10,10 +10,10 @@ resource "aws_ecr_lifecycle_policy" "frontend" {
       rules = [
         {
           rulePriority = 1,
-          description  = "Keep last 30 release tagged images",
+          description  = "Keep last 10 tagged images",
           selection = {
             tagStatus     = "tagged",
-            tagPrefixList = ["release"],
+            tagPrefixList = [var.env],
             countType     = "imageCountMoreThan",
             countNumber   = 10
           },
