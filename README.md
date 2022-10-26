@@ -52,6 +52,12 @@ variable "root_domain_name" { type = string }
 variable "root_domain_zone_id" { type = string }
 ```
 
+## CodeStarSourceConnection
+
+Github アカウントへの CodeStarSourceConnection を作成する。 今回はコンソール( Developer Tools => Settings => Connnections )から作る。
+
+- https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-github.html#connections-create-github-console
+
 # Step4: リソース作成
 
 ```
