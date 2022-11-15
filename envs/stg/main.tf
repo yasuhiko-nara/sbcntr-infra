@@ -23,6 +23,17 @@ provider "aws" {
   profile                  = "default"
 }
 
+provider "aws" {
+  region                   = "ap-northeast-1"
+  alias                    = "second_account"
+  shared_credentials_files = ["$HOME/.aws/credentials"]
+  profile                  = "nara-2nd-account"
+}
+
 data "aws_region" "current" {}
 
 data "aws_caller_identity" "current" {}
+
+data "aws_caller_identity" "second_account" {
+  provider = aws.second_account
+}
