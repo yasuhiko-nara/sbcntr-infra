@@ -30,18 +30,7 @@ variable "private_name_space" {
   type    = string
   default = "myapp.local"
 }
-variable "peering_vpc_id" {
-  type    = string
-  default = "vpc-xxxxx"
-}
-variable "peering_vpc_owner_account_id" {
-  type    = string
-  default = "xxxxxxx"
-}
-variable "peering_vpc_cidr_block" {
-  type    = string
-  default = "10.1.0.0/16"
-}
+
 
 # Route53 related
 variable "root_domain_name" { type = string }
