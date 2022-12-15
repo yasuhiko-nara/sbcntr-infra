@@ -7,7 +7,7 @@ variable "env" {
 # vpc related
 variable "vpc_cidr_block" {
   type    = string
-  default = "10.0.0.0/16"
+  default = "10.1.0.0/16"
 }
 variable "azs" {
   type    = list(string)
@@ -15,22 +15,22 @@ variable "azs" {
 }
 variable "public_subnets" {
   type    = list(string)
-  default = ["10.0.0.0/24", "10.0.1.0/24"]
+  default = ["10.1.0.0/24", "10.1.1.0/24"]
 }
 variable "private_app_subnets" {
   type    = list(string)
-  default = ["10.0.8.0/24", "10.0.9.0/24"]
+  default = ["10.1.8.0/24", "10.1.9.0/24"]
 
 }
 variable "private_db_subnets" {
   type    = list(string)
-  default = ["10.0.16.0/24", "10.0.17.0/24"]
+  default = ["10.1.16.0/24", "10.1.17.0/24"]
 }
 variable "private_name_space" {
   type    = string
-  default = "myapp.local"
-}
+  default = "myapp-2nd.local"
 
+}
 
 # Route53 related
 variable "root_domain_name" { type = string }
@@ -61,7 +61,7 @@ variable "logs_retention_in_days" {
 # CodePipeline related
 variable "artifact_bucket_name" {
   type    = string
-  default = "artifact-bucket-myapp"
+  default = "artifact-bucket-2nd-account"
 }
 variable "frontend_build_output_json" {
   type    = string
@@ -72,7 +72,7 @@ variable "github_connection_arn" {
 }
 variable "frontend_full_repository_id" {
   type    = string
-  default = "yasuhiko-nara/sbcntr-frontend"
+  default = "yasuhiko-nara/nodejs-sample"
 }
 variable "branch" {
   type    = string

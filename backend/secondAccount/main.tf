@@ -11,7 +11,7 @@ terraform {
 provider "aws" {
   region                   = "ap-northeast-1"
   shared_credentials_files = ["$HOME/.aws/credentials"]
-  profile                  = "default"
+  profile                  = "nara-2nd-account"
 }
 
 module "backend_s3_and_dynamoDB" {

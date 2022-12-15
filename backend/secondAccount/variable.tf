@@ -1,8 +1,8 @@
 variable "bucket_name" {
   type    = string
-  default = "test-bucket-202210261957"
+  default = "tfstate-bucket"
 }
 variable "dynamoDB_name" {
   type    = string
-  default = "terraform-state-lock-test"
+  default = "terraform_state_lock"
 }
